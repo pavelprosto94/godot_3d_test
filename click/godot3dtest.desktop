@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Godot 3D Test
+Comment=Simple 3d graphics test on GODOT.
+Exec=godot --main-pack godot_3d_test.pck
+Icon=icon.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Supported-Orientations=portrait
+X-Ubuntu-Splash-Color=#242424

@@ -1,0 +1,238 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/map_1.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://textures/grass.tga" type="Texture" id=4]
+[ext_resource path="res://textures/terrain.tga" type="Texture" id=5]
+[ext_resource path="res://textures/water.tga" type="Texture" id=6]
+[ext_resource path="res://textures/object.tga" type="Texture" id=7]
+[ext_resource path="res://objects/firemat.tres" type="Material" id=8]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=9]
+[ext_resource path="res://objects/flymat.tres" type="Material" id=10]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 0.988235, 0.988235, 0.988235, 1 )
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+params_depth_draw_mode = 1
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+params_depth_draw_mode = 3
+albedo_color = Color( 1, 1, 1, 0 )
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="SphereMesh" id=7]
+radius = 0.4
+height = 1.0
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0 ), 0.0, 5.75207, 0, 0, Vector2( 0.850575, 0 ), 0.197468, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.291391, 0.960265 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.989338, 0.78777, 0.0270522, 1, 0, 0, 0, 1 )
+
+[sub_resource type="SphereMesh" id=10]
+radius = 0.4
+height = 1.0
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0616294, 0, 0, Vector2( 1, 0 ), -1.93997, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0.231788, 0.97351 )
+colors = PoolColorArray( 0.929991, 0.980469, 0.0574493, 1, 0, 0, 0, 1 )
+
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.649007 )
+colors = PoolColorArray( 1, 0.712492, 0.277344, 1, 0, 0, 0, 1 )
+
+[node name="root" type="Spatial"]
+
+[node name="Control" parent="." instance=ExtResource( 1 )]
+numberlevel = 2
+textlevel = "Particle System. Total triangles 23.9k"
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 2 )]
+
+[node name="map_1" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+material/4 = SubResource( 5 )
+material/5 = SubResource( 6 )
+
+[node name="Position3D" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, 37 )
+script = ExtResource( 9 )
+end_dellay = 50
+
+[node name="Camera" type="Camera" parent="Position3D"]
+transform = Transform( 0.777677, -0.576818, 0.25, 0.0868241, 0.492404, 0.866025, -0.62264, -0.651781, 0.433013, 0, 3, 0 )
+current = true
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 0.3, 7.45058e-09, -2.23517e-09, -4.47035e-09, 0.5, -8.9407e-09, 2.23517e-09, 1.49012e-08, 0.3, -3.81091, 1.76253, 15.9551 )
+material_override = ExtResource( 8 )
+cast_shadow = 0
+amount = 40
+lifetime = 0.5
+speed_scale = 0.7
+randomness = 1.0
+local_coords = false
+mesh = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount_random = 0.8
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+anim_speed = 1.0
+anim_offset = 1.0
+
+[node name="CPUParticles3" type="CPUParticles" parent="."]
+transform = Transform( 0.3, 7.45058e-09, -2.23517e-09, -4.47035e-09, 0.5, -8.9407e-09, 2.23517e-09, 1.49012e-08, 0.3, 4.13646, 0.984766, 23.6684 )
+material_override = ExtResource( 8 )
+cast_shadow = 0
+amount = 40
+lifetime = 0.5
+speed_scale = 0.7
+randomness = 1.0
+local_coords = false
+mesh = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount_random = 0.8
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+anim_speed = 1.0
+anim_offset = 1.0
+
+[node name="CPUParticles2" type="CPUParticles" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, -0.21094, 1.49142, 11.6537 )
+material_override = ExtResource( 8 )
+amount = 40
+lifetime = 0.5
+speed_scale = 0.7
+randomness = 1.0
+local_coords = false
+draw_order = 2
+mesh = SubResource( 10 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount_random = 0.8
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+anim_speed = 1.0
+anim_offset = 1.0
+
+[node name="CPUParticles4" type="CPUParticles" parent="."]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1.8, 10.453, 7.75398, -16.0319 )
+material_override = ExtResource( 10 )
+cast_shadow = 0
+amount = 40
+lifetime = 3.0
+speed_scale = 0.1
+randomness = 1.0
+local_coords = false
+draw_order = 2
+mesh = SubResource( 10 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 0, 1 )
+spread = 0.0
+gravity = Vector3( -5, -3, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount_random = 0.8
+scale_amount_curve = SubResource( 11 )
+color_ramp = SubResource( 12 )
+anim_speed = 1.0
+anim_offset = 1.0
+
+[node name="CPUParticles5" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27425, 6.32004, 32.8486 )
+material_override = ExtResource( 10 )
+cast_shadow = 0
+amount = 40
+lifetime = 2.0
+speed_scale = 0.1
+randomness = 1.0
+local_coords = false
+draw_order = 2
+mesh = SubResource( 10 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 0, -1 )
+spread = 0.0
+gravity = Vector3( -8, -3, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount_random = 0.8
+scale_amount_curve = SubResource( 11 )
+color_ramp = SubResource( 13 )
+anim_speed = 1.0
+anim_offset = 1.0

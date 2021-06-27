@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="godot_3d_test"
+run/main_scene="res://environment/Menu.tscn"
+boot_splash/image="res://textures/none.png"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+config/icon="res://icon.png"
+config/quit_on_go_back=false
+
+[autoload]
+
+G="*res://scripts/Global.gd"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
+
+[display]
+
+window/size/width=480
+window/size/height=854
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+quality/dynamic_fonts/use_oversampling=false

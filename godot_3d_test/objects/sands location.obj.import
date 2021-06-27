@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sands location.obj-366e3e45d265f9f2465afb83c68869a1.mesh"
+
+[deps]
+
+files=[ "res://.import/sands location.obj-366e3e45d265f9f2465afb83c68869a1.mesh" ]
+
+source_file="res://objects/sands location.obj"
+dest_files=[ "res://.import/sands location.obj-366e3e45d265f9f2465afb83c68869a1.mesh", "res://.import/sands location.obj-366e3e45d265f9f2465afb83c68869a1.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

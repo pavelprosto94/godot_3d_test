@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/fpslabel.gd" type="Script" id=1]
+[ext_resource path="res://dynamicfont25.tres" type="DynamicFont" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+numberlevel = 1
+textlevel = "Simple test. Total triangles 23.9k"
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 14.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 2 )
+text = "FPS: 0"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -125.0
+custom_fonts/font = ExtResource( 2 )
+text = "Test 0
+Test name
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
