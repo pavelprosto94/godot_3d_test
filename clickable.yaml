@@ -1,0 +1,16 @@
+clickable_minimum_required: 8.0.0
+framework: ubuntu-sdk-20.04
+
+builder: custom
+build: echo 'Please make sure to export the package as godot_3d_test.pck at the root of this project'
+
+install_bin:
+- /opt/godot/godot
+install_lib:
+- /opt/sdl/*so*
+
+install_root_data:
+- click/*
+- godot_3d_test.pck
+
+kill: godot
